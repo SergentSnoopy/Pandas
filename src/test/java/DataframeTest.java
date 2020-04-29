@@ -69,8 +69,6 @@ class DataframeTest {
         h.put("0",s);
         h.put("1",i);
         Dataframe d2 =new Dataframe(s,i);
-        System.out.println(d.data);
-        System.out.println(d2.data);
         Assertions.assertEquals(1,d.compareTo(d2));
 
 
