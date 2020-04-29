@@ -1,16 +1,39 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * @author Prat Gary
+ * @version 1.0
+ * Ceci est un debut d'adaptation en java de la librairie pyhton Pandas
+ *
+ */
 public class Dataframe implements Comparable {
     HashMap<String,ArrayList> data=new HashMap<String, ArrayList>();
 
+    /**
+     *Constructeur vide de l'objet
+     *
+     */
     public Dataframe() {
 
     }
 
+
+    /**
+     * Constructeur prenant en parametre une hashmap
+     *
+     * @param data
+     */
     public Dataframe(HashMap<String, ArrayList> data) {
         this.data = data;
     }
+
+    /**
+     * Constructeur prenant en parametre les colonnes du dataframe
+     * Le dataframe produit a pour label le numero correspondant a l'emplacement de l'arraylist dans la list de parametre
+     *
+     * @param colonne (ArrayList...)
+     */
 
     public Dataframe(ArrayList... colonne) {
 
@@ -24,6 +47,36 @@ public class Dataframe implements Comparable {
 
     }
 
+    /**
+     *
+     *
+     * @param col nom des labels a copier
+     * @param ligne nombre de lignes, pour chaque colonne a copier
+     * @return un sous-dataframe cree a partir de l'objet appelant avec les colonnes correspondant a col et avec le nombre de lignes correspondant a lignes
+     * @throws Exception
+     */
+
+    public Dataframe extraire(String[] col,int[] ligne) throws Exception {
+        if (col.length!=ligne.length)
+            throw new Exception("Parametre incoherent");
+        else {
+            Dataframe nd = new Dataframe();
+            for (int i = 0; i < col.length; i++) {
+                if (ligne[i] > this.data.get(col[i]).size()) {
+                    throw new Exception("Nombre de ligne incoherent");
+                } else {
+                    nd.data.put(col[i], new ArrayList(this.data.get(col[i]).subList(0,ligne[i])));
+                }
+            }
+            return nd;
+        }
+    }
+
+    /**
+     * Affiche le dataframe
+     *
+     *
+     */
 
     public void afficher(){
         String result="";
@@ -47,6 +100,11 @@ public class Dataframe implements Comparable {
         System.out.println(result);
     }
 
+
+    /**
+     * Affiche les 5 premiere lignes du dataframe
+     *
+     */
     public void affichertete(){
         String result="";
         int nbligne;
@@ -73,6 +131,11 @@ public class Dataframe implements Comparable {
         System.out.println(result);
     }
 
+
+    /**
+     * Affiche les 5 dernieres lignes du dataframe
+     *
+     */
     public void afficherqueue(){
         String result="";
         int nbligne;
@@ -100,6 +163,12 @@ public class Dataframe implements Comparable {
     }
 
 
+    /**
+     * Fait la moyenne des valeurs d'une colonne
+     *
+     * @param nom Label de la colonne
+     * @return La moyenne de la colonne de label nom
+     */
     public double moyennecollone(String nom)
     {
         double moy=0;
@@ -110,6 +179,12 @@ public class Dataframe implements Comparable {
         return moy;
     }
 
+    /**
+     * Trouve le minimum des valeurs d'une colonne
+     *
+     * @param nom Label de la colonne
+     * @return Le minimum de la colonne de label nom
+     */
     public double mincollone(String nom)
     {
         double min = Double.MAX_VALUE;
@@ -121,6 +196,13 @@ public class Dataframe implements Comparable {
         return min;
     }
 
+
+    /**
+     * Trouve le maximun des valeurs d'une colonne
+     *
+     * @param nom Label de la colonne
+     * @return Le maximun de la colonne de label nom
+     */
     public double maxcollone(String nom)
     {
         double max = -Double.MAX_VALUE;
@@ -133,6 +215,11 @@ public class Dataframe implements Comparable {
         return max;
     }
 
+
+    /**
+     * ToString
+     * @return
+     */
     @Override
     public String toString() {
         return "Dataframe{" +
@@ -140,11 +227,16 @@ public class Dataframe implements Comparable {
                 '}';
     }
 
+
+    /**
+     * Comparaison de deux dataframe
+     * @param o
+     * @return 0 si leur contenue est different, 1 si ils sont identique
+     */
     public int compareTo(Object o) {
         Dataframe d =(Dataframe) o;
         if(this.data.size()!=d.data.size())
         {
-            System.out.println("0");
             return 0;
         }
         else{
