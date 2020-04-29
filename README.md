@@ -2,21 +2,25 @@
 
 Prat Gary
 
-##Fonctionalite
+## Fonctionalite
+
 Pour les details de fonctionnement voire la JavaDoc dons le dossier doc.
-###1. Dataframe
+### 1. Dataframe
+
 Pour cette partie, plusieurs constructeurs on était fait. Mais le constructeur prenant en entre un fichier CSV n'a pas était fait.
-###2. Affichage d'un dataframe
+### 2. Affichage d'un dataframe
+
 Les 3 type d'affichages ont etaient realise.
 
-###3. Selection dans un dataframe
+### 3. Selection dans un dataframe
+
 Cette partie a était realisé même si elle n'était pas requis.
 
-###4. Statistique sur un dataframe
+### 4. Statistique sur un dataframe
 Pour cette partie j'ai realisé 3 fonction (Moyenne, Min,Max).
 
 
-##Outil utilise
+## Outil utilise
 Pour ce projet j'ai utilise L'IDE Intellij IDEA. Maven a d'ailleurs était cree avec les fonctionnalités de mon IDE.
 Il en est de même pour les testes unitaire qui utilise JUNIT 5.4
 
@@ -33,7 +37,7 @@ si vous avez le temps de regarder et que vous en connaisez la souce.
 
 Pour la documentation, j'ai utiliser JavaDoc. Vous pouvez la trouvez dans le dossier Doc.
 
-##Feedback
+## Feedback
 Avant tout je tiens à dire que j'ai ecrit le code et la documentation sur un ordinateur avec en clavier anglais.
 Il mettait impossible d'ecrire les accents dans le code.
 
@@ -43,7 +47,7 @@ donné en master pour le moment.
 Il aurait peut-être été plus intéressant de nous faire travailler sur un plus gros projet, avec un groupe plus gros. (Faire toutes la bibliothèque en groupe de 5 par exemple).
 
 
-##Annexe
+## Annexe
 Erreur Travis CI
 
 ![Erreur travis](./img/travis_erreur.png)
